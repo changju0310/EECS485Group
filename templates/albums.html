@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ALBUMS PAGE</title>
+</head>
+<body>
+	<h1>{{username}}</h1>
+
+	{% for items in Albums %}
+		{% if items['username'] == username %}
+		<form method="get" action="/7dzyltg7/p1/album">
+			<strong>
+				{{items['title']}}
+			</strong>
+			<br>
+			<button id="album_{{items['albumid']}}_link" name="albumid" value="{{items['albumid']}}">
+				VIEW ALBUM
+			</button>
+			<br>
+		</form>
+		{% endif %}
+	{% endfor %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<form method="post" action="/7dzyltg7/p1/albums/edit">
+		<button id="user_albums_edit_{{username}}" name="username" value="{{username}}">
+			EDIT/DELETE/ADD ALBUMs
+		</button>
+		<br>
+	</form>
+</body>
+</html>

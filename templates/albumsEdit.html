@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ALBUMS EDIT PAGE</title>
+</head>
+<body>
+	<h1>{{username}}</h1>
+	
+	{% for items in Albums %}
+		{% if items['username'] == username %}
+		<form method="post" action="/7dzyltg7/p1/albums/edit">
+			<strong>
+				{{items['title']}}
+			</strong>
+			<br>
+			<button id="delete_album_{{items['albumid']}}" name="DELETE" value="{{items['albumid']}}">
+				DELETE
+			</button>
+		</form>
+		<form method="post" action="/7dzyltg7/p1/album/edit">
+			<button  name="EDIT" value="{{items['albumid']}}">
+				EDIT
+			</button>
+		</form>
+		<br>
+		{% endif %}
+	{% endfor %}
+
+	<br>
+	<br>
+
+	<form method="post" action="/7dzyltg7/p1/albums/edit">
+		<strong>
+			Please input the title of the album, if you wanna add new one
+		</strong>
+		<br>
+		<input type="text" name="title">
+		<button id="album_add_submit" name="ADD" value="{{username}}">
+				ADD
+		</button>
+		<br>
+	</form>
+
+</body>
+</html>

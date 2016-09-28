@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{picid}}</title>
+</head>
+<body>
+	<h1>{{picid}}</h1>
+	{% set filename = "images/" ~ picid ~ ".jpg" %}
+	
+	<img src = "{{url_for('static',filename = filename)}}">
+	<img src = "{{url_for('static',filename='IMG_9941.JPG')}}">
+
+	{% for items in Contain %}
+		{% if items['picid'] == picid %}
+			{% set count = loop.index0 %}
+			<form method="get" action="/7dzyltg7/p1/pic">
+			{% if not loop.first %}
+				<button id="prev_pic" name="picid" value="{{Contain[count-1]['picid']}}">
+					Previous PIC
+				</button>
+			{% endif %}
+			{% if not loop.last %}
+				<button id="next_pic" name="picid" value="{{Contain[count+1]['picid']}}">
+					Next PIC
+				</button>
+			{% endif %}
+			</form>
+
+		{% endif %}
+	{% endfor %}
+</body>

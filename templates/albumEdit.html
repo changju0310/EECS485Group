@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ALBUM EDIT PAGE</title>
+</head>
+<body>
+	<h1>{{album_title}}</h1>
+
+	{% for items in Contain %}
+		{% if items['albumid'] == albumid %}
+		<form method="post" action="/7dzyltg7/p1/album/edit">
+			<strong>
+				{{items['picid']}}
+			</strong>
+			<br>
+			<button id="delete_pic_{{items['picid']}}" name="DELETE" value="{{items['picid']}}">
+				DELETE
+			</button>
+			<br>
+		</form>
+		{% endif %}
+	{% endfor %}
+
+	<form id="file_input" enctype="multipart/form-data" method="post" action="/7dzyltg7/p1/album/edit">
+		<input type="file" name="fileUpload">
+		<button id="file_submit" name = "file" value="{{albumid}}">
+			SUBMIT
+		</button>
+	</form>
+
+	

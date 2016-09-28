@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ALBUM PAGE</title>
+</head>
+<body>
+	<h1>{{album_title}}</h1>
+
+	{% for items in Contain %}
+		{% if items['albumid'] == albumid %}
+		<form method="get" action="/7dzyltg7/p1/pic">
+			<strong>
+				{{items['picid']}}
+			</strong>
+			<br>
+			<button id="pic_{{items['picid']}}_link" name="picid" value="{{items['picid']}}">
+				VIEW PICTURE
+			</button>
+			<br>
+		</form>
+		{% endif %}
+	{% endfor %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<form method="post" action="/7dzyltg7/p1/album/edit">
+		<button name="albumid" value="{{albumid}}" >
+			EDIT/DELETE/ADD ALBUM
+		</button>
+		<br>
+	</form>
+</body>
+</html>

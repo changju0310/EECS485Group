@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HOME PAGE</title>
+	</head>
+	<body>
+		<h1>Hello, Orange</h1>	
+		
+		{% for items in test%}
+		<form method="get" action="/7dzyltg7/p1/albums">
+			<strong>
+				{{items['username']}}
+			</strong>
+			<br>
+			<button id="user_albums_{{items['username']}}" name="username" value="{{items['username']}}">
+				VIEW ALBUMS
+			</button>
+			<br>
+		</form>
+		{% endfor %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<footer>EECS 485 PROJECT 1 CREATED BY GROUP 19</footer>
+	</body>
+</html>
